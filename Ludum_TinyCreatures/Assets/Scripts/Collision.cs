@@ -4,11 +4,17 @@ public class Collision : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Sheep"))
-            return;
+        if (other.CompareTag("Sheep")) 
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.CountSheep++;
+        }
+
+        if (other.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.KeyCount++;
+        }
         
-        Destroy(other.gameObject);
-        
-        GameManager.Instance.CountSheep++;
     }
 }

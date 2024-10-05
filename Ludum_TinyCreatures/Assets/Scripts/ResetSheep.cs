@@ -16,7 +16,7 @@ public class ResetSheep : MonoBehaviour
         if (!other.TryGetComponent(out HeroControls heroControls))
             return;
         
-        GameManager.Instance.CountSheep = 0;
+        GameManager.Instance.CountSheep -= _pushObject.SheepNecessary;
 
         _massiveObjectRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }

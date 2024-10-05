@@ -9,6 +9,11 @@ public class PushObject : MonoBehaviour
 
     [SerializeField] private int _sheepNecessary;
 
+    public int SheepNecessary
+    {
+        get { return _sheepNecessary; }
+    }
+
     private void Awake()
     {
         _objectRigidbody = GetComponent<Rigidbody2D>();
