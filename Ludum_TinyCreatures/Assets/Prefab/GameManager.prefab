@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746297363387611998}
   - component: {fileID: 4654982137920019020}
+  - component: {fileID: 1364366177300368283}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,4 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _countSheep: 0
   _keyCount: 0
-  timer: 35
+  _keySecretDoorCount: 0
+  timer: 180
+--- !u!114 &1364366177300368283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571394393985476190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8262d8504ac18924f8a277f5ffb0353b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

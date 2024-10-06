@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public enum GameState
 {
@@ -83,6 +84,9 @@ public class GameManager : MonoBehaviour
         switch (_gameState)
         {
             case(GameState.StartScreen):
+                UIManager.Instance.UnloadUI("lose");
+                UIManager.Instance.LoadUI("start");
+                
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _gameState = GameState.GameInProgress;
@@ -91,7 +95,6 @@ public class GameManager : MonoBehaviour
                     letPlayerMove = true;
                     _currentTimer = timer;
                     UIManager.Instance.Slide("out");
-                    Debug.Log("GameInProgress");
                     AudioManager.Instance.StopSound(Sources.Title);
                     AudioManager.Instance.PlaySound(SoundClip.Music, Sources.Music);
                 }
@@ -99,12 +102,24 @@ public class GameManager : MonoBehaviour
             case(GameState.GameInProgress):
                 GameTimer();
                 ConvertTimer();
-                if (_currentTimer <= 30 && _currentTimer >= 29)
+                if (_currentTimer <= 30)
+                {
+                    Camera.main.transform.DOShakePosition(.2f, .1f, 5, 90, false, true).SetLoops(1, LoopType.Restart);   
                     UIManager.Instance.Slide("in");
+
+                    UIManager.Instance.PointTimerAnimator.enabled = true;
+                    UIManager.Instance.MinutesAnimator.enabled = true;
+                    UIManager.Instance.SecondsAnimator.enabled = true;
+                }
+                    
                 if (_currentTimer <= 0)
                 {
                     _gameState = GameState.LoseGame;
                     AudioManager.Instance.PlaySound(SoundClip.Wolf, Sources.Level);
+                    
+                    UIManager.Instance.PointTimerAnimator.enabled = false;
+                    UIManager.Instance.MinutesAnimator.enabled = false;
+                    UIManager.Instance.SecondsAnimator.enabled = false;
                 }
                 
                 break;
@@ -131,7 +146,6 @@ public class GameManager : MonoBehaviour
         if (_currentTimer <= 0)
         {
             _gameState = GameState.EndGame;
-            Debug.Log("End Game");
         }
         else
         {
@@ -142,6 +156,5 @@ public class GameManager : MonoBehaviour
     private void ConvertTimer()
     {
         convertedTime = TimeSpan.FromSeconds(_currentTimer);
-        Debug.Log(convertedTime.Minutes + ";" + convertedTime.Seconds);
     }
 }

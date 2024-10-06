@@ -184,6 +184,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1727675adff0194dbcb33466a2f1a9c, type: 3}
+--- !u!95 &298844528 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4984055345625573722, guid: f228351b61da5634caacb1dbf36ed079, type: 3}
+  m_PrefabInstance: {fileID: 4228941686705596284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &298844529 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4830727293714931212, guid: f228351b61da5634caacb1dbf36ed079, type: 3}
+  m_PrefabInstance: {fileID: 4228941686705596284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &298844530 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2231802288420611042, guid: f228351b61da5634caacb1dbf36ed079, type: 3}
+  m_PrefabInstance: {fileID: 4228941686705596284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &381844251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 703276378620025806, guid: 338dbcf9521dfa74aa6eeba6eb886e30, type: 3}
@@ -589,13 +604,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4654982137920019020, guid: b51a84d4d57311b45a3384faea816e94, type: 3}
       propertyPath: timer
-      value: 180
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51a84d4d57311b45a3384faea816e94, type: 3}
+--- !u!114 &1329620532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1364366177300368283, guid: b51a84d4d57311b45a3384faea816e94, type: 3}
+  m_PrefabInstance: {fileID: 1329620531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8262d8504ac18924f8a277f5ffb0353b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1386998834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1690182461937477845, guid: 894cb9118c2f9964caee20e1da8c1e2f, type: 3}
@@ -826,9 +852,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4228941686705596288}
     - target: {fileID: 8866934822121763565, guid: 4e3c36126f7db1a4abf3ca6a5e1a7055, type: 3}
+      propertyPath: _minutesAnimator
+      value: 
+      objectReference: {fileID: 298844530}
+    - target: {fileID: 8866934822121763565, guid: 4e3c36126f7db1a4abf3ca6a5e1a7055, type: 3}
+      propertyPath: _secondsAnimator
+      value: 
+      objectReference: {fileID: 298844528}
+    - target: {fileID: 8866934822121763565, guid: 4e3c36126f7db1a4abf3ca6a5e1a7055, type: 3}
       propertyPath: _timerGameObject
       value: 
       objectReference: {fileID: 4228941686705596289}
+    - target: {fileID: 8866934822121763565, guid: 4e3c36126f7db1a4abf3ca6a5e1a7055, type: 3}
+      propertyPath: _pointTimerAnimator
+      value: 
+      objectReference: {fileID: 298844529}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1046,9 +1084,37 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2067841639}
+    - target: {fileID: 1488625956012706804, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329620532}
+    - target: {fileID: 1488625956012706804, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488625956012706804, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2058730037535531214, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
       propertyPath: m_Name
       value: -----LoseScreen-----
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058730037535531214, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422227319928300939, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329620532}
+    - target: {fileID: 3422227319928300939, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422227319928300939, guid: f99ebb836b613e24bb061d70812e73ba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuButton, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4117,6 +4183,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----EndScreen-----
       objectReference: {fileID: 0}
+    - target: {fileID: 1382251568041984090, guid: 18b98983e54d28f48bdf3f297df0cf6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553585915926592431, guid: 18b98983e54d28f48bdf3f297df0cf6e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329620532}
+    - target: {fileID: 2553585915926592431, guid: 18b98983e54d28f48bdf3f297df0cf6e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553585915926592431, guid: 18b98983e54d28f48bdf3f297df0cf6e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7357248568974193246, guid: 18b98983e54d28f48bdf3f297df0cf6e, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4342,6 +4424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: -----MainUI-----
       objectReference: {fileID: 0}
+    - target: {fileID: 5248702875126112086, guid: f228351b61da5634caacb1dbf36ed079, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8489393373210046089, guid: f228351b61da5634caacb1dbf36ed079, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4518,6 +4604,22 @@ PrefabInstance:
     - target: {fileID: 5041481784143576625, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
       propertyPath: m_Name
       value: -----StartScreen-----
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041481784143576625, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124699370566438794, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329620532}
+    - target: {fileID: 6124699370566438794, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124699370566438794, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6523395314725523849, guid: cc9b29a979d0bbe448cf166cde2d1355, type: 3}
       propertyPath: m_Pivot.x

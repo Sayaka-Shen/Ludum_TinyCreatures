@@ -26,6 +26,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _txtMinute;
     [SerializeField] private TextMeshProUGUI _txtSeconds;
     [SerializeField] private TextMeshProUGUI _txtPointTimer;
+
+    [SerializeField] private Animator _minutesAnimator;
+    [SerializeField] private Animator _pointTimerAnimator;
+    [SerializeField] private Animator _secondsAnimator;
+
+    public Animator MinutesAnimator { get { return _minutesAnimator; } }
+    public Animator PointTimerAnimator { get { return _pointTimerAnimator; } }
+    public Animator SecondsAnimator { get { return _secondsAnimator; } }
     
     [Header("TimerSlidePosition")]
     [SerializeField] private Transform _timerIn;
