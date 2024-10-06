@@ -15,6 +15,11 @@ public class Collision : MonoBehaviour
             Destroy(other.gameObject);
             GameManager.Instance.KeyCount++;
         }
-        
+
+        if (other.CompareTag("SecretKey"))
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.KeySecretDoorCount++;
+        }
     }
 }

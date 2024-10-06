@@ -11,10 +11,13 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameManager.Instance.KeyCount >= 1 && _isCloseToDoor)
+        if (_door.CompareTag("Door") && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.KeyCount >= 1 && _isCloseToDoor)
         {
             Destroy(_door);
-        }
+        } else if (_door.CompareTag("SecretDoor") && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.KeySecretDoorCount >= 1 && _isCloseToDoor)
+        {
+            Destroy(_door);
+        } 
     }
     
     private void OnTriggerEnter2D(Collider2D other)

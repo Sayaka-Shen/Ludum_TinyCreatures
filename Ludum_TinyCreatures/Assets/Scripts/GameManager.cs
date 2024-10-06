@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _keyCount;
 
     public int KeyCount { get { return _keyCount; } set { _keyCount = value; } }
+
+    [SerializeField] private int _keySecretDoorCount;
+    public int KeySecretDoorCount { get { return _keySecretDoorCount; } set { _keySecretDoorCount = value; } }
     
     [Header("Timer")]
     [SerializeField] private float timer = 180;

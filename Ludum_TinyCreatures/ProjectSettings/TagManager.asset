@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Sheep
   - Key
+  - SecretKey
+  - Door
+  - SecretDoor
   layers:
   - Default
   - TransparentFX
