@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _countSheep: 0
+  _keyCount: 0
+  timer: 40
