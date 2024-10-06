@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 703276378620025806}
   - component: {fileID: 2767259187598636856}
   - component: {fileID: 2950949782935416395}
+  - component: {fileID: 5937205057997048311}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -190,3 +191,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5937205057997048311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252727421994151403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e759bac2e0e7445a468c93ebe0a34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

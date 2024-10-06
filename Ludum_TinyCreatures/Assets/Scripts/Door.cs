@@ -14,9 +14,11 @@ public class Door : MonoBehaviour
         if (_door.CompareTag("Door") && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.KeyCount >= 1 && _isCloseToDoor)
         {
             Destroy(_door);
+            AudioManager.Instance.PlaySound(SoundClip.Door, Sources.Level);
         } else if (_door.CompareTag("SecretDoor") && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.KeySecretDoorCount >= 1 && _isCloseToDoor)
         {
             Destroy(_door);
+            AudioManager.Instance.PlaySound(SoundClip.Door, Sources.Level);
         } 
     }
     

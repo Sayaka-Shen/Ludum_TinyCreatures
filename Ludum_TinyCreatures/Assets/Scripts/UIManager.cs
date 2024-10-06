@@ -149,4 +149,9 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void DestroyManager()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -6,13 +6,22 @@ using UnityEngine;
 public enum SoundClip
 {
     //List of AudioClip "Id"
-    Exemple
+    Music,
+    Key,
+    Wolf,
+    Sheep,
+    Door,
+    Push,
+    TitleMusic
 }
 
 public enum Sources
 {
     //List of all AudioSource in your scene
-    Exemple
+    Music,
+    Level,
+    Title,
+    Push
 }
 
 public class AudioManager : MonoBehaviour
@@ -58,15 +67,110 @@ public class AudioManager : MonoBehaviour
         //If you add a Source copy/paste a case in the switch and replace "Exemple" by your Sources ID;
         switch (sourceID)
         {
-            case(Sources.Exemple):
+            case(Sources.Music):
                 foreach (AudioSourceData sourceData in AudioSourcesDatas)
                 {
-                    if (sourceData.Id == Sources.Exemple)
+                    if (sourceData.Id == Sources.Music)
                     {
                         foreach (AudioData data in AudioDatas)
                         {
-                            sourceData.Source.PlayOneShot(data.Clip);
+                            if (data.Id == id)
+                            {
+                                sourceData.Source.Stop();
+                                sourceData.Source.PlayOneShot(data.Clip);
+                            }
                         }
+                    }
+                }
+                break;
+            case(Sources.Level):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Level)
+                    {
+                        foreach (AudioData data in AudioDatas)
+                        {
+                            if (data.Id == id)
+                            {
+                                sourceData.Source.Stop();
+                                sourceData.Source.PlayOneShot(data.Clip);
+                            }
+                        }
+                    }
+                }
+                break;
+            case(Sources.Title):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Title)
+                    {
+                        foreach (AudioData data in AudioDatas)
+                        {
+                            if (data.Id == id)
+                            {
+                                sourceData.Source.Stop();
+                                sourceData.Source.PlayOneShot(data.Clip);
+                            }
+                        }
+                    }
+                }
+                break;
+            case(Sources.Push):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Push)
+                    {
+                        foreach (AudioData data in AudioDatas)
+                        {
+                            if (data.Id == id)
+                            {
+                                sourceData.Source.Stop();
+                                sourceData.Source.PlayOneShot(data.Clip);
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
+    public void StopSound(Sources sourcesID)
+    {
+        switch (sourcesID)
+        {
+            case(Sources.Music):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Music)
+                    {
+                        sourceData.Source.Stop();
+                    }
+                }
+                break;
+            case(Sources.Level):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Level)
+                    {
+                        sourceData.Source.Stop();
+                    }
+                }
+                break;
+            case(Sources.Title):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Title)
+                    {
+                        sourceData.Source.Stop();
+                    }
+                }
+                break;
+            case(Sources.Push):
+                foreach (AudioSourceData sourceData in AudioSourcesDatas)
+                {
+                    if (sourceData.Id == Sources.Push)
+                    {
+                        sourceData.Source.Stop();
                     }
                 }
                 break;

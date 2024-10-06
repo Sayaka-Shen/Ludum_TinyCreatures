@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -66,9 +67,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         _currentTimer = timer;
         _gameState = GameState.StartScreen;
+    }
+
+    private void Start()
+    {
         UIManager.Instance.LoadUI("start");
         UIManager.Instance.UnloadUI("end");
         UIManager.Instance.UnloadUI("lose");
+        AudioManager.Instance.PlaySound(SoundClip.TitleMusic, Sources.Title);
     }
 
     private void Update()
@@ -84,6 +90,8 @@ public class GameManager : MonoBehaviour
                     letPlayerMove = true;
                     UIManager.Instance.Slide("out");
                     Debug.Log("GameInProgress");
+                    AudioManager.Instance.StopSound(Sources.Title);
+                    AudioManager.Instance.PlaySound(SoundClip.Music, Sources.Music);
                 }
                 break;
             case(GameState.GameInProgress):
@@ -92,7 +100,11 @@ public class GameManager : MonoBehaviour
                 if (_currentTimer <= 30 && _currentTimer >= 29)
                     UIManager.Instance.Slide("in");
                 if (_currentTimer <= 0)
+                {
                     _gameState = GameState.LoseGame;
+                    AudioManager.Instance.PlaySound(SoundClip.Wolf, Sources.Level);
+                }
+                
                 break;
             case(GameState.LoseGame):
                 UIManager.Instance.LoadUI("lose");
@@ -101,6 +113,13 @@ public class GameManager : MonoBehaviour
             case(GameState.EndGame):
                 UIManager.Instance.LoadUI("end");
                 UIManager.Instance.UnloadUI("main");
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    _gameState = GameState.StartScreen;
+                    UIManager.Instance.DestroyManager();
+                    Destroy(gameObject);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
                 break;
         }
     }

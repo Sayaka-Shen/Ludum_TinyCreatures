@@ -8,18 +8,21 @@ public class Collision : MonoBehaviour
         {
             Destroy(other.gameObject);
             GameManager.Instance.CountSheep++;
+            AudioManager.Instance.PlaySound(SoundClip.Sheep, Sources.Level);
         }
 
         if (other.CompareTag("Key"))
         {
             Destroy(other.gameObject);
             GameManager.Instance.KeyCount++;
+            AudioManager.Instance.PlaySound(SoundClip.Key, Sources.Level);
         }
 
         if (other.CompareTag("SecretKey"))
         {
             Destroy(other.gameObject);
             GameManager.Instance.KeySecretDoorCount++;
+            AudioManager.Instance.PlaySound(SoundClip.Key, Sources.Level);
         }
     }
 }
