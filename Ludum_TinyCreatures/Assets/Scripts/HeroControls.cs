@@ -18,7 +18,10 @@ public class HeroControls : MonoBehaviour
 
     private void Update()
     {
-        Movement();
+        if (GameManager.Instance.LetPlayerMove)
+        {
+            Movement();
+        }
     }
 
     private void Movement()

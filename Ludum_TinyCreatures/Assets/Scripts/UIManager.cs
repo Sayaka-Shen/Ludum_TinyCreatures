@@ -16,9 +16,9 @@ public class UIManager : MonoBehaviour
     }
     
     [Header("Timer")]
-    [SerializeField] private GameObject _timerGameObject;
+    [SerializeField] private RectTransform _timerGameObject;
 
-    public GameObject TimerGameObject
+    public RectTransform TimerGameObject
     {
         get { return _timerGameObject; }
     }
@@ -36,7 +36,11 @@ public class UIManager : MonoBehaviour
     [Header("Sheep")] 
     [SerializeField] private TextMeshProUGUI _txtSheepCount;
 
-    
+    [Header("Menu")] 
+    [SerializeField] private GameObject _startScreen;
+    [SerializeField] private GameObject _mainScreen;
+    [SerializeField] private GameObject _endScreen;
+    [SerializeField] private GameObject _loseScreen;
     
     private void Awake()
     {
@@ -82,11 +86,11 @@ public class UIManager : MonoBehaviour
         switch (inOrOut)
         {
             case("in"):
-                _timerGameObject.transform.position = _timerIn.position;
+                _timerGameObject.transform.position = _timerOut.position;
                 StartCoroutine(StartDoFade(100f, 0));
-                StartCoroutine(WaitForSlideOut(1));
                 break;
             case("out"):
+                GameManager.Instance.LetPlayerMove = false;
                 StartCoroutine(WaitForSlideOut(2));
                 StartCoroutine(StartDoFade(0, _slideDuration * 2));
                 break;
@@ -99,11 +103,50 @@ public class UIManager : MonoBehaviour
         _txtMinute.DOFade(endValue, _fadeDuration);
         _txtSeconds.DOFade(endValue, _fadeDuration);
         _txtPointTimer.DOFade(endValue, _fadeDuration);
+        GameManager.Instance.LetPlayerMove = true;
     }
 
     IEnumerator WaitForSlideOut(float waitDuration)
     {
         yield return new WaitForSeconds(waitDuration);
-        _timerGameObject.transform.DOMove(_timerOut.position, _slideDuration);
+        _timerGameObject.DOMove(_timerOut.position, _slideDuration);
+    }
+
+    public void UnloadUI(string uiName)
+    {
+        switch (uiName)
+        {
+            case("start"):
+                _startScreen.SetActive(false);
+                break;
+            case("main"):
+                _mainScreen.SetActive(false);
+                break;
+            case("end"):
+                _endScreen.SetActive(false);
+                break;
+            case("lose"):
+                _loseScreen.SetActive(false);
+                break;
+        }
+    }
+    
+    public void LoadUI(string uiName)
+    {
+        switch (uiName)
+        {
+            case("start"):
+                _startScreen.SetActive(true);
+                break;
+            case("main"):
+                _mainScreen.SetActive(true);
+                break;
+            case("end"):
+                _endScreen.SetActive(true);
+                break;
+            case("lose"):
+                _loseScreen.SetActive(true);
+                break;
+        }
     }
 }

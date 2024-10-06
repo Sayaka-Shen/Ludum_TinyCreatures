@@ -40,6 +40,14 @@ public class GameManager : MonoBehaviour
         get { return convertedTime; }
     }
     
+    private bool letPlayerMove = false;
+
+    public bool LetPlayerMove
+    {
+        get { return letPlayerMove; }
+        set { letPlayerMove = value; }
+    }
+    
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -55,6 +63,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         _currentTimer = timer;
         _gameState = GameState.StartScreen;
+        UIManager.Instance.LoadUI("start");
+        UIManager.Instance.UnloadUI("end");
+        UIManager.Instance.UnloadUI("lose");
     }
 
     private void Update()
@@ -65,7 +76,9 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _gameState = GameState.GameInProgress;
-                    UIManager.Instance.TimerGameObject.SetActive(true);
+                    UIManager.Instance.UnloadUI("start");
+                    UIManager.Instance.LoadUI("main");
+                    letPlayerMove = true;
                     UIManager.Instance.Slide("out");
                     Debug.Log("GameInProgress");
                 }
@@ -73,12 +86,18 @@ public class GameManager : MonoBehaviour
             case(GameState.GameInProgress):
                 GameTimer();
                 ConvertTimer();
-                if (_currentTimer <= 30)
+                if (_currentTimer <= 30 && _currentTimer >= 29)
                     UIManager.Instance.Slide("in");
+                if (_currentTimer <= 0)
+                    _gameState = GameState.LoseGame;
                 break;
             case(GameState.LoseGame):
+                UIManager.Instance.LoadUI("lose");
+                UIManager.Instance.UnloadUI("main");
                 break;
             case(GameState.EndGame):
+                UIManager.Instance.LoadUI("end");
+                UIManager.Instance.UnloadUI("main");
                 break;
         }
     }
@@ -93,7 +112,6 @@ public class GameManager : MonoBehaviour
         else
         {
             _currentTimer -= Time.deltaTime;
-
         }
     }
 
