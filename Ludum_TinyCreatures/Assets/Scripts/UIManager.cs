@@ -112,12 +112,20 @@ public class UIManager : MonoBehaviour
         _timerGameObject.DOMove(_timerOut.position, _slideDuration);
     }
 
+    IEnumerator WaitForFade(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        _startScreen.SetActive(false);
+    }
+    
     public void UnloadUI(string uiName)
     {
         switch (uiName)
         {
             case("start"):
-                _startScreen.SetActive(false);
+                _startScreen.GetComponentInChildren<Image>().DOFade(0, 4).SetEase(Ease.InSine);
+                StartCoroutine(WaitForFade(2));
+                _startScreen.GetComponentInChildren<Image>().DOFade(100, 0);
                 break;
             case("main"):
                 _mainScreen.SetActive(false);
@@ -149,9 +157,10 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
-
+    
     public void DestroyManager()
     {
         Destroy(gameObject);
     }
+    
 }

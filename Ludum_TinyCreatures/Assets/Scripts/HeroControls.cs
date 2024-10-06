@@ -7,6 +7,7 @@ public class HeroControls : MonoBehaviour
 
     [Header("Hero Information")] 
     [SerializeField] private float _heroSpeed = 10f;
+    [SerializeField] private SpriteRenderer _sprite;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class HeroControls : MonoBehaviour
         if (GameManager.Instance.LetPlayerMove)
         {
             Movement();
+           
         }
     }
 
@@ -29,5 +31,17 @@ public class HeroControls : MonoBehaviour
         Vector2 inputVector = _heroInputAction.Hero.Move.ReadValue<Vector2>();
 
         _heroRigidbody.velocity = new Vector2(inputVector.x, inputVector.y) * _heroSpeed;
+        RotateHero(inputVector);
+    }
+
+    private void RotateHero(Vector2 inputVector)
+    {
+        if (inputVector.x > 0)
+        {
+            _sprite.flipX = true;
+        }else if(inputVector.x < 0)
+        {
+            _sprite.flipX = false;
+        }
     }
 }

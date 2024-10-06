@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroSpeed: 5
+  _sprite: {fileID: 6558530352216280601}
 --- !u!114 &3623777915227038595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ GameObject:
   - component: {fileID: 7395769152303097072}
   - component: {fileID: 8629679927612652719}
   - component: {fileID: 7786890653528918108}
-  - component: {fileID: 3105350079910394805}
+  - component: {fileID: 6749363376246076753}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -228,7 +229,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980706857508675085}
   m_Enabled: 1
---- !u!114 &3105350079910394805
+--- !u!114 &6749363376246076753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

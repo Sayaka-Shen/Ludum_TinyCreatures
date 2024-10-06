@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.LoadUI("start");
         UIManager.Instance.UnloadUI("end");
         UIManager.Instance.UnloadUI("lose");
+        AudioManager.Instance.StopSound(Sources.Music);
         AudioManager.Instance.PlaySound(SoundClip.TitleMusic, Sources.Title);
     }
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
                     UIManager.Instance.UnloadUI("start");
                     UIManager.Instance.LoadUI("main");
                     letPlayerMove = true;
+                    _currentTimer = timer;
                     UIManager.Instance.Slide("out");
                     Debug.Log("GameInProgress");
                     AudioManager.Instance.StopSound(Sources.Title);
