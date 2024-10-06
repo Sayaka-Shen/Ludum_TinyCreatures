@@ -33,7 +33,12 @@ public class GameManager : MonoBehaviour
     [Header("Game State")]
     private GameState _gameState;
     public GameState GameState { get { return _gameState; } set { _gameState = value; } }
-    
+    private TimeSpan convertedTime;
+
+    public TimeSpan ConvertedTime
+    {
+        get { return convertedTime; }
+    }
     
     private void Awake()
     {
@@ -65,7 +70,7 @@ public class GameManager : MonoBehaviour
                 break;
             case(GameState.GameInProgress):
                 GameTimer();
-                ConvertTime();
+                ConvertTimer();
                 break;
             case(GameState.EndGame):
                 break;
@@ -86,9 +91,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ConvertTime()
+    private void ConvertTimer()
     {
-        TimeSpan time = TimeSpan.FromSeconds(_currentTimer);
-        Debug.Log(time.Minutes + ";" + time.Seconds);
+        convertedTime = TimeSpan.FromSeconds(_currentTimer);
+        Debug.Log(convertedTime.Minutes + ";" + convertedTime.Seconds);
     }
 }
