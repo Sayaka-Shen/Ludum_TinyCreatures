@@ -65,12 +65,18 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     _gameState = GameState.GameInProgress;
+                    UIManager.Instance.TimerGameObject.SetActive(true);
+                    UIManager.Instance.Slide("out");
                     Debug.Log("GameInProgress");
                 }
                 break;
             case(GameState.GameInProgress):
                 GameTimer();
                 ConvertTimer();
+                if (_currentTimer <= 30)
+                    UIManager.Instance.Slide("in");
+                break;
+            case(GameState.LoseGame):
                 break;
             case(GameState.EndGame):
                 break;
