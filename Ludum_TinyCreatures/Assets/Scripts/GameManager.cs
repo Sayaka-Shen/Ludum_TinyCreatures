@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
                     UIManager.Instance.LoadUI("main");
                     letPlayerMove = true;
                     _currentTimer = timer;
+                    _countSheep = 0;
                     UIManager.Instance.Slide("out");
                     AudioManager.Instance.StopSound(Sources.Title);
                     AudioManager.Instance.PlaySound(SoundClip.Music, Sources.Music);
